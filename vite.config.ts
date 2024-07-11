@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import federation from "@originjs/vite-plugin-federation";
 export default defineConfig({
+
   plugins: [
     remix({
       future: {
@@ -17,9 +18,15 @@ export default defineConfig({
       filename: "remoteEntry.js",
       exposes: {
         "./NavigateButton": "./app/components/NavigateButton.tsx",
-      },
+      }
     }),
   ],
+  build: {
+    modulePreload: false,
+    target: "esnext",
+    minify: false,
+    cssCodeSplit: false,
+  },
   server: {
     host: "127.0.0.1",
   },

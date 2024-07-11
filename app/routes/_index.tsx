@@ -10,8 +10,8 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="font-sans p-4">
-      <NavigateButton to={'/test'} label="Test"/>
-    </div>
+      <div className="font-sans p-4">
+        <NavigateButton to={'/test'} label="Test" />
+      </div>
   );
 }
