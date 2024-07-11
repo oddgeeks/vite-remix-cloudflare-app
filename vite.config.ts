@@ -1,7 +1,7 @@
 import { vitePlugin as remix } from "@remix-run/dev";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-
+import federation from "@originjs/vite-plugin-federation";
 export default defineConfig({
   plugins: [
     remix({
@@ -12,5 +12,15 @@ export default defineConfig({
       },
     }),
     tsconfigPaths(),
+    federation({
+      name: "vite_remix_cloudflare_app",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./NavigateButton": "./app/components/NavigateButton.tsx",
+      },
+    }),
   ],
+  server: {
+    host: "127.0.0.1",
+  },
 });
