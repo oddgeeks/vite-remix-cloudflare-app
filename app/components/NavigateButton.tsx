@@ -1,10 +1,7 @@
-import { useNavigate } from "@remix-run/react";
-
 const NavigateButton = ({ to, label }: { to: string, label: string }) => {
-  const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(to);
+    alert("test!")
   };
 
   return <button onClick={handleClick}>{label}</button>;
